@@ -36,9 +36,7 @@ mapL f []       = []
 mapL f (x ∷ xs) = f x ∷ mapL f xs
 
 -- 演習問題１: Vec 上の map 関数
-mapV : (A → B) → Vec A n → Vec B n
-mapV f []       = []
-mapV f (x ∷ xs) = f x ∷ mapV f xs
+
 
 -- List 上の head 関数
 -- headL : List A → A
@@ -123,6 +121,7 @@ data TExp : Ty → Set where
   ifte : TExp boolty → TExp τ → TExp τ → TExp τ
   -- 演習問題２：is0 を追加
 
+
 -- 型付きの式の例
 texp1 : TExp numty
 texp1 = ifte tru (num 1) (num 0)
@@ -148,6 +147,7 @@ interp2 (ifte e₁ e₂ e₃) with interp2 e₁
 ... | vtru = interp2 e₂
 ... | vfls = interp2 e₃
 -- 演習問題２：is0 のケースを追加
+
 
 -- 型の解釈
 interpTy : Ty → Set
